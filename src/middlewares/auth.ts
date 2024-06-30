@@ -14,7 +14,7 @@ export const authMiddleware = async (
 
   if (!token) {
     return next(
-      new UnauthorizedException('Unauthorized!', ErrorCode.Unauthorized)
+      new UnauthorizedException('Unauthorized!', ErrorCode.UNAUTHORIZED)
     )
   }
 
@@ -29,14 +29,14 @@ export const authMiddleware = async (
 
     if (!user) {
       return next(
-        new UnauthorizedException('Unauthorized!', ErrorCode.Unauthorized)
+        new UnauthorizedException('Unauthorized!', ErrorCode.UNAUTHORIZED)
       )
     }
     req.user = user
     next()
   } catch (error) {
     return next(
-      new UnauthorizedException('Unauthorized!', ErrorCode.Unauthorized)
+      new UnauthorizedException('Unauthorized!', ErrorCode.UNAUTHORIZED)
     )
   }
 }
